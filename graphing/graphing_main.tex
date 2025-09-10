@@ -1,0 +1,61 @@
+\documentclass{article}
+
+\usepackage[square,sort,comma,numbers]{natbib}
+\usepackage{../tex_resources/ocencfd}
+\usepackage{amssymb}
+\usepackage{subcaption}
+\usepackage{caption}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{amsmath,amsfonts,amssymb}
+\usepackage{tabularx}
+\usepackage{amsmath}
+\usepackage{bm}
+\usepackage{mwe}
+\usepackage{placeins}
+\usepackage{tikz}
+
+%%%%%%%%%% BEGIN Comment out for publication %%%%%%%%%%
+% For publication, comment out the drawio package and uncomment the \newcommand line
+\makeatletter
+\def\input@path{{../tex_resources/}}
+\makeatother
+\usepackage{drawio}
+%%%%%%%%%% END Comment out for publication %%%%%%%%%%
+
+%%%%%%%%%% BEGIN Uncomment for publication %%%%%%%%%%
+% \newcommand{\includediagram}[2][]{\includegraphics[#1]{#2}}
+%%%%%%%%%% END Uncomment for publication %%%%%%%%%%
+
+\usetikzlibrary{positioning, shapes.geometric, arrows.meta}
+
+\begin{document}
+
+
+\section{Include TikZ Graph}
+
+This graph is an idea I was toying around with, but I have not tried it yet.
+
+\begin{figure}[ht]
+\centering
+\include{graph}
+\caption{Factor Graph with Timestamp Estimation}
+\label{fig:factor_graph}
+\end{figure}
+
+
+\section{Include DrawIO Graph}
+
+This graph is in ../drawio/factor_graph_1.drawio. If the graph file is updated, compile this document again (ctrl+s or hit play) to see the changes. Converting from .drawio to .pdf is done automatically if the drawio file changes, so it takes a bit longer to compile the first time after a change.
+
+If you decide to publish this document, comment out the drawio package and uncomment the \verb|\newcommand| line above. This will include the .pdf file directly instead of converting from .drawio to .pdf on the fly. When submitting, make sure to include the .pdf files.
+
+\begin{figure}[ht]
+\centering
+\includediagram{../drawio/factor_graph_1}
+\caption{Factor Graph with Timestamp Estimation}
+\label{fig:factor_graph_1}
+\end{figure}
+
+
+\end{document} 

@@ -1,0 +1,24 @@
+{
+    "explorer.excludeGitIgnore": true,
+    "latex-workshop.view.pdf.invert": 0.94,
+    "latex-workshop.view.pdf.invertMode.brightness": 2,
+    "hediet.vscode-drawio.appearance": "dark",
+    // This is needed to enable shell escape for draw.io
+    "latex-workshop.latex.tools": [
+        {
+            "name": "latexmk",
+            "command": "latexmk",
+            "args": [
+                "-synctex=1",
+                "-interaction=nonstopmode",
+                "-file-line-error",
+                "-pdf",
+                "-outdir=%OUTDIR%",
+                // Add this line
+                "-shell-escape", 
+                "%DOC%"
+            ],
+            "env": {}
+        }
+    ]
+}

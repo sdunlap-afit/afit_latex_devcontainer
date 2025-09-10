@@ -1,0 +1,231 @@
+% ================================= preamble ===================================
+% To compile this document on your own machine, run the following commands in
+% the terminal:
+%   pdflatex main
+%   biber main
+%   makeglossaries main
+%   pdflatex main
+%   pdflatex main
+% In Overleaf, just click "Compile" once or CTRL-S.
+
+% You can add options by entering text between the square brackets (`[]`).
+%   Use the `noul` option if there is a conflict with the `\ul` command.
+%   Use the `review` option when sending to committee members for review.
+%   Use the `internal` option for a prospectus or graduate research paper.
+%   Use the `style` option to customize citations: `style=ieee`.
+\documentclass[]{afitthesis}
+
+\usepackage{booktabs}
+\usepackage{amssymb}
+\usepackage{subcaption}
+\usepackage{caption}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{amsmath,amsfonts,amssymb}
+\usepackage{tabularx}
+\usepackage{amsmath}
+\usepackage{bm}
+\usepackage{mwe}
+\usepackage{placeins}
+\usepackage{tikz}
+\usetikzlibrary{positioning, shapes.geometric, arrows.meta}
+
+
+
+%%%%%%%%%% BEGIN Comment out for publication %%%%%%%%%%
+% For publication, comment out the drawio package and uncomment the \newcommand line
+\makeatletter
+\def\input@path{{../tex_resources/}}
+\makeatother
+\usepackage{drawio}
+%%%%%%%%%% END Comment out for publication %%%%%%%%%%
+
+%%%%%%%%%% BEGIN Uncomment for publication %%%%%%%%%%
+% \newcommand{\includediagram}[2][]{\includegraphics[#1]{#2}}
+%%%%%%%%%% END Uncomment for publication %%%%%%%%%%
+
+
+
+% ------------------------ Main document information ---------------------------
+
+
+\title{ Theis Draft: Some title }
+\author{ Stephen Dunlap }
+% \authorsecond{} % Use these if other students contributed.
+% \authorthird{}
+% \authorfourth{}
+\rank{ Contractor }
+% \ranksecond{} % Use these if other students contributed.
+% \rankthird{}
+% \rankfourth{}
+\previousdegrees{B.S., M.S.}
+\newdegree{ Doctor of Philosophy in Computer Engineering }
+\graduationdate{June 2026}
+\department{\ENG} 
+\doctype{dissertation} % Default is "thesis".
+\docdesignator{ AFIT-ENG-PHD-26-S-0XX } % provided by AFIT
+% \address{} % Default is WPAFB.
+% \disclaimer{} % Default distances the AF from the views of the paper.
+% \copyrightstatement{} % Default claims ownership by US government.
+\committee{ % rank name, Ph.D. \\ role
+    {Scott Graham, Ph.D.\\Chair},
+    {Clark Taylor, Ph.D.\\Member},
+    {Maj Rachel Oliver, Ph.D.\\Member}
+    }
+\abstract{
+Accurate attitude determination is essential for the success of spacecraft missions, impacting various operational aspects such as communication, navigation, and scientific observation. This study investigates the effect of timing errors on the accuracy of attitude determination systems, specifically focusing on clock drift, timestamp inaccuracies, and measurement latency. The research evaluates the performance of different attitude estimation algorithms under varying conditions and identifies potential degradation in accuracy due to timing discrepancies. Simulations of a spacecraft equipped with a star tracker and a three-axis gyroscope emphasize the need for robust error mitigation strategies in attitude determination systems to enhance the reliability and efficiency of space missions.
+}
+\keywords{satellite; attitude; factor graph; time; synchronization }
+% \dedication{To the one who loves me most.}
+% \acknowledgments{I would like to thank the entire committee for your great
+    % support.}
+
+% Distribution and Control. Uncomment to specify.
+% \cui{ % for Controlled Unclassified Information
+%     Controlled By: AETC \\
+%     Controlled By: AFIT/ENG \\
+%     CUI Category(ies): PRVCY \\
+%     Distribution: \DistB{CATEGORY}{DATE}{OFFICE} \\
+%     POC: John Smith, 555-123-4567}
+% \classified{ % for classified work
+%     Classified By: \\
+%     Derived From: \\
+%     Declassify On: }
+% \banner{cui} % automatically inserted into the header and footer
+
+% -------------- SF 298 (Report Documentation Page) information ----------------
+
+% Necessary fields
+\sfStartDate{Sep 2023}
+\sfEndDate{Mar 2024}
+\sfContractNumber{XXXXXX-XX-X-XXXX}
+\sfGrantNumber{}
+\sfProgramElementNumber{}
+\sfProjectNumber{XXXXXXXX}
+\sfTaskNumber{}
+\sfWorkUnitNumber{}
+\sfSponsorAgency{AFXX/XXXX\\
+    Building XXX, WPAFB OH 45433-7765\\
+    DSN XXX-XXXX, COMM 937-XXX-XXXX, Email: first.last@us.af.mil }
+\sfSponsorAcronyms{}
+\sfSponsorReportNumber{}
+\sfDistribution{\DistA}
+\sfSupplementaryNotes{}
+\sfReportClassification{}
+\sfAbstractClassification{}
+\sfPageClassification{}
+\sfAbstractLimitation{UU}
+\sfResponsiblePerson{Dr. Your Advisor, AFIT/ENG}
+\sfPhoneNumber{(937) XXX-XXXX}
+\sfClassification{}
+
+% SF 298 Override default variables
+% \sfReportDate{}       % defaults to today's date
+% \sfReportType{}       % defaults to \doctype{}
+% \sfTitle{}            % defaults to \title{}
+% \sfAuthors{}          % defaults to \author{}, \rank{}
+% \sfDepartment{}       % defaults to \department{}
+% \sfAddress{}          % defaults to \address{}
+% \sfDocDesignator{}    % defaults to \docdesignator{}
+% \sfAbstract{}         % defaults to \abstract{}
+% \sfSubjectTerms{}     % defaults to \keywords{}
+% \sfPageCount{}        % defaults to total number of pages
+
+% ------------------------- Glossaries and acronyms ----------------------------
+
+% Example glossary and acronym definitions.
+% TODO:
+% \newglossaryentry{latex}{name=\LaTeX{},
+%     description={Is a markup language specially suited
+%     for scientific documents}}
+% \newglossaryentry{maths}{name=mathematics,
+%     description={Mathematics is what mathematicians do}}
+% \newglossaryentry{formula}{name=formula,
+%     description={A mathematical expression}}
+\newacronym{gcd}{GCD}{Greatest Common Divisor}
+\newacronym{lcm}{LCM}{Least Common Multiple}
+
+% ----------------------------- References files -------------------------------
+
+
+% NOTE: Google "Overleaf Getting started with BibLaTeX" for guidance.
+\addbibresource{../tex_resources/refs.bib} % Name of the bibliography file
+
+% ------------------------------ Figures folder --------------------------------
+
+% Define the default location to look for figures.
+\graphicspath{{img}}
+
+% ============================== Body of paper =================================
+
+\begin{document}
+\maketitle % Creates all the prefatory pages.
+
+\chapter{Introduction}
+
+
+
+
+\chapter{Background}
+
+
+\chapter{Methodology}
+
+
+
+\chapter{Results and Analysis}
+
+
+
+
+\chapter{Conclusion}
+
+
+
+
+\appendix % Necessary before any appendix chapters
+
+\chapter{Acronyms}
+
+% TODO:
+% This paragraph is an example of using the \verb|glossaries| package. The
+% \Gls{latex} typesetting markup language is especially suited for documents that
+% include \gls{maths}. \Glspl{formula} are rendered properly and easily, once one
+% gets used to the commands. Given a set of numbers, there are elementary methods
+% to compute its \acrlong{gcd}, which is abbreviated \acrshort{gcd}. This process
+% is similar to that used for the \acrfull{lcm}.
+
+The acronyms are listed in Table~\ref{tab_acronymns} and the glossary
+definitions are listed in Table~\ref{tab_glossary}.
+
+% Print acronyms
+\begin{table}[htbp!]
+    \centering
+    \caption{List of acronyms.}
+    \printglossary[type=\acronymtype]
+    \label{tab_acronymns}
+\end{table}
+
+% Print glossary
+\begin{table}[htbp!]
+    \centering
+    \caption{List of glossary definitions.}
+    \printglossary
+    \label{tab_glossary}
+\end{table}
+
+% If you would rather not use the \verb|glossaries| package, you can simply define macros using built-in \LaTeX{} commands:
+% \begin{verbatim}
+%     \def\gcd{Greatest Common Divisor}
+% \end{verbatim}
+
+
+% ------------------------------- Bibliography ---------------------------------
+
+%\nocite{*} % Uncomment to print all .bib entries, regardless of use.
+\printbibliography % Prints the bibliography.
+
+% ---------------------------- Standard Form 298 -------------------------------
+
+\sfTwoNineEight % Required for every thesis and dissertation
+\end{document}
