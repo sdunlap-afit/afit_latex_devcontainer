@@ -32,6 +32,13 @@ Next, open `graphing/graphing_main.tex`, click the play icon, then the preview i
 
 1. alt_thesis_template - This is my stripped down version of the standard thesis template. It has been modified to use `/tex_resources/refs.bib` and includes the drawio import. 
 
+1. synctex is enabled in the settings:
+    - To go from code to pdf:
+      - mac: `cmd` + `option` + `j`
+      - windows/linux: `ctrl` + `alt` + `j`
+    - To go from pdf to code:
+      - mac: `cmd` + `click`
+      - windows/linux: `ctrl` + `click`
 
 ## Random notes
 
