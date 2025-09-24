@@ -40,6 +40,8 @@ Next, open `graphing/graphing_main.tex`, click the play icon, then the preview i
       - mac: `cmd` + `click`
       - windows/linux: `ctrl` + `click`
 
+1. ltex provides grammar and spell checking.
+
 ## Random notes
 
 I have VSCode set to hide gitignore files to make things cleaner. This can cause confusion if you're not aware.
