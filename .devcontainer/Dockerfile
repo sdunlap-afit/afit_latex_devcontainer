@@ -16,15 +16,14 @@ RUN cd /tmp && \
 
 
 ##### Update non-root user #####
-
+# texlive user already exists in the base image,
+# so we just have to fix sudo permissions.
 ARG USERNAME=texlive
-ARG USER_UID=1000
-ARG USER_GID=$USER_UID
 
-# ##### Create user for Ubuntu 22.04 #####
+##### Allow the user to run sudo commands #####
 RUN echo $USERNAME ALL=\(root\) NOPASSWD:ALL > /etc/sudoers.d/$USERNAME \
     && chmod 0440 /etc/sudoers.d/$USERNAME
 
-# # [Optional] Set the default user. Omit if you want to keep the default as root.
+# Set the default user
 USER $USERNAME
 WORKDIR /home/$USERNAME
