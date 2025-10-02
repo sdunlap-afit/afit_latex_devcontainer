@@ -2,7 +2,7 @@
 # Ignore all PDF files
 #   To not ignore PDF files, add an empty .gitignore file to the directory 
 #   See tex_resources/img/.gitignore for an example
-**/*.pdf
+# **/*.pdf
 
 *SAVE-ERROR
 # Temporarily ignore while drafting
