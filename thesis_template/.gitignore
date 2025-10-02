@@ -1,0 +1,3 @@
+
+# Ignore PDF files in this directory. Don't push incremental changes to PDF files.
+*.pdf

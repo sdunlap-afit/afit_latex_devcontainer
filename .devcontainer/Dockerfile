@@ -1,26 +1,29 @@
-# See here for image contents: https://github.com/microsoft/vscode-dev-containers/tree/v0.177.0/containers/debian/.devcontainer/base.Dockerfile
 
-# [Choice] Version: bullseye-[slim|full], focal-[slim|full], alpine
-# For bullseye and focal also language specific version exist. Use bullseye-<LANG>, focal-<LANG>
-# LANG: [all, arabic, chinese, cjk, cyrillic, czechslovak, english, european, french, german, greek, italian, japanese, korean, other, polish, portuguese, spanish]
-# Set in .devcontainer/devcontainer.json
-ARG VARIANT="noble" 
-FROM hegerdes/vscode-latex:${VARIANT}
+FROM texlive/texlive:latest
 
 
 RUN apt update && apt install -y \
-    texlive-latex-recommended \
-    texlive-bibtex-extra \
-    biber
+    git ssh sudo \
+    ant biber \
+    xz-utils
+    
 
-# Example for version 24.7.5 - check for the latest version
-RUN sudo apt update && \ 
-    apt-get install -y wget libnotify4 libsecret-1-0 && \
-    cd /tmp && \
-    wget https://github.com/jgraph/drawio-desktop/releases/download/v28.0.6/drawio-amd64-28.0.6.deb -O drawio.deb && \
-    # Install the package (you may need to install dependencies)
-    sudo dpkg -i drawio.deb && \
-    # If it complains about missing dependencies, run:
-    sudo apt-get install -f -y && \
-    sudo rm drawio.deb
+# https://github.com/jgraph/docker-drawio/blob/dev/main/Dockerfile
+RUN cd /tmp && \
+    git clone --depth 1 https://github.com/jgraph/drawio.git && \
+    cd /tmp/drawio/etc/build/ && \
+    ant war
 
+
+##### Update non-root user #####
+# texlive user already exists in the base image,
+# so we just have to fix sudo permissions.
+ARG USERNAME=texlive
+
+##### Allow the user to run sudo commands #####
+RUN echo $USERNAME ALL=\(root\) NOPASSWD:ALL > /etc/sudoers.d/$USERNAME \
+    && chmod 0440 /etc/sudoers.d/$USERNAME
+
+# Set the default user
+USER $USERNAME
+WORKDIR /home/$USERNAME

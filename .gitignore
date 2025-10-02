@@ -1,10 +1,17 @@
 
+# Ignore all PDF files
+#   To not ignore PDF files, add an empty .gitignore file to the directory 
+#   See tex_resources/img/.gitignore for an example
+# **/*.pdf
 
-**/*.pdf
-
+*SAVE-ERROR
 # Temporarily ignore while drafting
 /spec_exam/img
 
+# glossaries-extra auxiliary files
+*.glg-abr
+*.glo-abr
+*.gls-abr
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

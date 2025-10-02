@@ -1,0 +1,55 @@
+
+
+
+
+
+%%%%%%%%%% Glossary Entries %%%%%%%%%%
+
+% Example glossary and acronym definitions.
+% TODO:
+\newglossaryentry{latex}{name=\LaTeX{},
+description={Is a markup language specially suited
+for scientific documents}}
+\newglossaryentry{maths}{name=mathematics,
+description={Mathematics is what mathematicians do}}
+\newglossaryentry{formula}{name=formula,
+description={A mathematical expression}}
+
+
+%%%%%%%%%% Optional Acronym Style %%%%%%%%%%
+% 
+% This is an optional acronym style that only shows the long (short) form for 
+% the first use of an acronym, and only the long form for subsequent uses.
+%
+% Comment this out if you want the traditional long-short style (i.e., if you are a monster).
+%
+% For some reason, this needs to come after at least one glossary entry,
+% but before any acronym definitions.
+\newabbreviationstyle{long-short-noshort}{%
+    \ifglsused{\glslabel}%
+    {\GlsXtrUseAbbrStyleSetup{long-noshort}}%
+    {\GlsXtrUseAbbrStyleSetup{long-short}}%    
+}{%    
+    \ifglsused{\glslabel}%
+    {\GlsXtrUseAbbrStyleFmts{long-noshort}}%
+    {\GlsXtrUseAbbrStyleFmts{long-short}}%    
+}    
+
+\setabbreviationstyle{long-short-noshort}
+
+
+%%%%%%%%%% Acronym Entries %%%%%%%%%%
+
+%\newabbreviation[description={}]{label}{short}{long}
+% description - Shows up in table of acronyms
+% label - internal label for referencing: use \gls{label}
+% short - acronym
+% long - full phrase (use upper/lower case as desired)
+
+\newabbreviation[description={Global Navigation Satellite System}]{gnss}{GNSS}{global navigation satellite system}
+
+
+
+
+
+
