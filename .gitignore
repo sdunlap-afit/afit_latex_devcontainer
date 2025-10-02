@@ -1,8 +1,9 @@
 
-alt_thesis_template/*.pdf
-thesis_template/*.pdf
-tex_*/*.pdf
-drawio/*.pdf
+# Ignore all PDF files
+#   To not ignore PDF files, add an empty .gitignore file to the directory 
+#   See tex_resources/img/.gitignore for an example
+**/*.pdf
+
 *SAVE-ERROR
 # Temporarily ignore while drafting
 /spec_exam/img
