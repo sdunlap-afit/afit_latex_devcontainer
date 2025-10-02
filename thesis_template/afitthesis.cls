@@ -166,149 +166,149 @@
 \newcommand{\mailto}[1]{\href{mailto:#1}{\nolinkurl{#1}}}
 
 % TikZ pictures, predefined for efficient reuse
-% \tikzset{
-%     afitcrest/.pic={
-%         % (-0.866,-0.866) to (0.866,0.866)
-%         \definecolor{crestdark}{RGB}{127,127,127}
-%         \definecolor{crestlight}{RGB}{191,191,191}
-%         % Ribbon
-%         \draw[crestlight, very thick, line cap=round, fill=white] (-0.61,-0.04)
-%             .. controls (-0.62,-0.01) and (-0.64,0.092) .. (-0.72,0.092)
-%             .. controls (-0.75,0.092) and (-0.78,0.06) .. (-0.78,0.025)
-%             .. controls (-0.78,-0.05) and (-0.866,-0.13) .. (-0.866,-0.175)
-%             .. controls (-0.866,-0.22) and (-0.82,-0.24) .. (-0.79,-0.235)
-%             (0.79,-0.235)
-%             .. controls (0.82,-0.24) and (0.866,-0.22) .. (0.866,-0.175)
-%             .. controls (0.866,-0.13) and (0.78,-0.05) .. (0.78,0.025)
-%             .. controls (0.78,0.06) and (0.75,0.092) .. (0.72,0.092)
-%             .. controls (0.64,0.092) and (0.62,-0.01) .. (0.61,-0.04);
-%         \draw[crestlight, very thick, line cap=round, fill=white]
-%             (-0.74,-0.04) -- (-0.703,0.025)
-%             .. controls (-0.6,-0.07) and (-0.795,-0.16) .. (-0.795,-0.28)
-%             .. controls (-0.795,-0.4) and (-0.652,-0.53) .. (-0.47,-0.619)
-%             .. controls (-0.288,-0.709) and (-0.15,-0.735) .. (0,-0.866)
-%             .. controls (0.15,-0.735) and (0.288,-0.709) .. (0.47,-0.619)
-%             .. controls (0.652,-0.53) and (0.795,-0.4) .. (0.795,-0.28)
-%             .. controls (0.795,-0.16) and (0.6,-0.07) .. (0.703,0.025) --
-%             (0.74,-0.04);
-%         \draw[crestlight, very thick, line cap=round] (-0.78,0.025)
-%             .. controls (-0.78,-0.04) and (-0.69,-0.09) .. (-0.676,-0.018)
-%             (0.78,0.025)
-%             .. controls (0.78,-0.04) and (0.69,-0.09) .. (0.676,-0.018);
-%         % Shield background
-%         \fill[crestlight, draw=crestdark, thick]
-%             (-0.678,0.684) -- (-0.5,0.866) -- (0.5,0.866) -- (0.678,0.684)
-%             .. controls (0.6,0.58) and (0.565,0.43) .. (0.565,0.308)
-%             .. controls (0.565,0.12) and (0.622,0.0) .. (0.622,-0.1)
-%             .. controls (0.622,-0.42) and (0.15,-0.41) .. (0,-0.61)
-%             .. controls (-0.15,-0.41) and (-0.622,-0.42) .. (-0.622,-0.1)
-%             .. controls (-0.622,0.0) and (-0.565,0.12) .. (-0.565,0.308)
-%             .. controls (-0.565,0.43) and (-0.6,0.58) .. (-0.678,0.684) -- cycle;
-%         % Shield foreground
-%         \fill[crestdark]
-%             (-0.56,0.0)
-%             .. controls (-0.51,0.2) and (-0.493,0.5) .. (-0.625,0.676)
-%             -- (-0.48,0.825) -- (0.48,0.825) -- (0.625,0.676)
-%             .. controls (0.493,0.5) and (0.51,0.2) .. (0.56,0) % top
-%             {[xshift=0.588cm]
-%             .. controls (-0.038,0) and (-0.063,-0.01) .. (-0.063,-0.03) % cave
-%             .. controls (-0.068,-0.05) and (-0.035,-0.06)
-%             .. (-0.035,-0.08) % vex
-%             .. controls (-0.035,-0.1) and (-0.06,-0.11)
-%             .. (-0.098,-0.11)} % bottom
-%             \foreach \xs in {0.392cm, 0.196cm, 0cm, -0.196cm, -0.392cm}{
-%                 [xshift=\xs]
-%                 .. controls (0.06,-0.11) and (0.035,-0.1)
-%                 .. (0.035,-0.08) % vex
-%                 .. controls (0.035,-0.06) and (0.068,-0.05)
-%                 .. (0.063,-0.03) % cave
-%                 .. controls (0.063,-0.01) and (0.038,0) .. (0,0) % top
-%                 .. controls (-0.038,0) and (-0.063,-0.01)
-%                 .. (-0.063,-0.03) % cave
-%                 .. controls (-0.068,-0.05) and (-0.035,-0.06)
-%                 .. (-0.035,-0.08) % vex
-%                 .. controls (-0.035,-0.1) and (-0.06,-0.11)
-%                 .. (-0.098,-0.11) % bottom
-%             }
-%             [xshift=-0.588cm]
-%             .. controls (0.06,-0.11) and (0.035,-0.1) .. (0.035,-0.08) % vex
-%             .. controls (0.035,-0.06) and (0.068,-0.05) .. (0.063,-0.03) % cave
-%             .. controls (0.063,-0.01) and (0.038,0) .. (0.028,0); % top
-%         % Gear
-%         \def\ygear{0.4125cm}
-%         \fill[crestlight, yshift=\ygear]
-%             (-4.875:0.26)
-%             \foreach \i in {0,1,...,15} {%
-%                 [rotate=(22.5*\i-5.625)] arc (0.75:10.5:0.26) --
-%                 (12:0.3) arc (12:21.75:0.3) -- (23.25:0.26)
-%             };
-%         % Circle
-%         \draw[thick, crestdark, yshift=\ygear]
-%             (0,0) circle (0.2);
-%         % Outer orbits
-%         \begin{scope}[yshift=\ygear]
-%             \foreach \i in {0, 30, 60, 90, 120, 150}{
-%                 \draw[thick, crestdark, rotate=\i]
-%                     (0,0) circle (0.17 and 0.05);
-%             }
-%         \end{scope}
-%         % Inner orbits
-%         \begin{scope}[yshift=\ygear]
-%             \foreach \i in {45, 135}{
-%                 \draw[thick, crestdark, rotate=\i]
-%                     (0,0) circle (0.04 and 0.015);
-%             }
-%         \end{scope}
-%         % Lightening
-%         \foreach \xf/\yf in {1/1, 1/-1, -1/1, -1/-1}{
-%             \begin{scope}[yshift=\ygear, xscale=\xf, yscale=\yf]
-%                 \fill[crestlight, very thin]
-%                     (0.176,0.2) -- (0.186,0.217) -- (0.295,0.321) --
-%                     (0.303,0.249) -- (0.362,0.306) -- (0.318,0.310) --
-%                     (0.442,0.380) -- (0.392,0.240) -- (0.382,0.289) --
-%                     (0.287,0.170) -- (0.278,0.250) -- (0.217,0.186) --
-%                     (0.2,0.176) arc (41.35:48.65:0.2664);
-%             \end{scope}
-%         }
-%         % Letters
-%         \fontsize{10pt}{10pt}\fontfamily{ptm}\selectfont
-%         \begin{scope}[crestdark]
-%             \node[rotate=-62, yscale=1.9] at (-0.681,-0.278){A};
-%             \node[rotate=-50, yscale=1.9] at (-0.642,-0.333){F};
-%             \node[rotate=-37, yscale=1.9] at (-0.565,-0.412){I};
-%             \node[rotate=-33, yscale=1.9] at (-0.520,-0.443){N};
-%             \node[rotate=-28, yscale=1.9] at (-0.467,-0.476){S};
-%             \node[rotate=-24, yscale=1.9] at (-0.415,-0.503){T};
-%             \node[rotate=-21, yscale=1.9] at (-0.370,-0.523){I};
-%             \node[rotate=-22, yscale=1.9] at (-0.320,-0.544){T};
-%             \node[rotate=-22, yscale=1.9, xslant=-0.25]
-%                 at (-0.251,-0.572){U};
-%             \node[rotate=-26, yscale=1.9, xslant=-0.65]
-%                 at (-0.182,-0.605){T};
-%             \node[rotate=-33, yscale=1.85, xslant=-1.10]
-%                 at (-0.120,-0.642){E};
-%             \node[rotate=-41, xscale=1.2, yscale=1.72, xslant=-1.30]
-%                 at (-0.027,-0.708){O};
-%             \node[rotate=41, xscale=1.5, yscale=1.65, xslant=0.95]
-%                 at (0.035,-0.700){F};
-%             \node[rotate=37, xscale=1.35, yscale=1.7, xslant=0.85]
-%                 at (0.134,-0.633){T};
-%             \node[rotate=30, xscale=1.19, yscale=1.95, xslant=0.65]
-%                 at (0.204,-0.593){E};
-%             \node[rotate=12, yscale=2.05] at (0.262,-0.563){C};
-%             \node[rotate=20, yscale=1.95] at (0.327,-0.538){H};
-%             \node[rotate=23, yscale=1.95] at (0.398,-0.510){N};
-%             \node[rotate=30, yscale=1.9] at (0.467,-0.477){O};
-%             \node[rotate=32, yscale=1.9] at (0.529,-0.439){L};
-%             \node[rotate=38, yscale=1.9] at (0.585,-0.398){O};
-%             \node[rotate=51, yscale=1.9] at (0.640,-0.342){G};
-%             \node[rotate=63, yscale=1.9] at (0.680,-0.276){Y};
-%         \end{scope}
-%         % Signature
-%         \node[rotate=24, scale=0.5, crestlight, opacity=0.08]
-%             at (0.35,-0.64) {\sffamily DW~\@version};
-%     },
-% }
+\tikzset{
+    afitcrest/.pic={
+        % (-0.866,-0.866) to (0.866,0.866)
+        \definecolor{crestdark}{RGB}{127,127,127}
+        \definecolor{crestlight}{RGB}{191,191,191}
+        % Ribbon
+        \draw[crestlight, very thick, line cap=round, fill=white] (-0.61,-0.04)
+            .. controls (-0.62,-0.01) and (-0.64,0.092) .. (-0.72,0.092)
+            .. controls (-0.75,0.092) and (-0.78,0.06) .. (-0.78,0.025)
+            .. controls (-0.78,-0.05) and (-0.866,-0.13) .. (-0.866,-0.175)
+            .. controls (-0.866,-0.22) and (-0.82,-0.24) .. (-0.79,-0.235)
+            (0.79,-0.235)
+            .. controls (0.82,-0.24) and (0.866,-0.22) .. (0.866,-0.175)
+            .. controls (0.866,-0.13) and (0.78,-0.05) .. (0.78,0.025)
+            .. controls (0.78,0.06) and (0.75,0.092) .. (0.72,0.092)
+            .. controls (0.64,0.092) and (0.62,-0.01) .. (0.61,-0.04);
+        \draw[crestlight, very thick, line cap=round, fill=white]
+            (-0.74,-0.04) -- (-0.703,0.025)
+            .. controls (-0.6,-0.07) and (-0.795,-0.16) .. (-0.795,-0.28)
+            .. controls (-0.795,-0.4) and (-0.652,-0.53) .. (-0.47,-0.619)
+            .. controls (-0.288,-0.709) and (-0.15,-0.735) .. (0,-0.866)
+            .. controls (0.15,-0.735) and (0.288,-0.709) .. (0.47,-0.619)
+            .. controls (0.652,-0.53) and (0.795,-0.4) .. (0.795,-0.28)
+            .. controls (0.795,-0.16) and (0.6,-0.07) .. (0.703,0.025) --
+            (0.74,-0.04);
+        \draw[crestlight, very thick, line cap=round] (-0.78,0.025)
+            .. controls (-0.78,-0.04) and (-0.69,-0.09) .. (-0.676,-0.018)
+            (0.78,0.025)
+            .. controls (0.78,-0.04) and (0.69,-0.09) .. (0.676,-0.018);
+        % Shield background
+        \fill[crestlight, draw=crestdark, thick]
+            (-0.678,0.684) -- (-0.5,0.866) -- (0.5,0.866) -- (0.678,0.684)
+            .. controls (0.6,0.58) and (0.565,0.43) .. (0.565,0.308)
+            .. controls (0.565,0.12) and (0.622,0.0) .. (0.622,-0.1)
+            .. controls (0.622,-0.42) and (0.15,-0.41) .. (0,-0.61)
+            .. controls (-0.15,-0.41) and (-0.622,-0.42) .. (-0.622,-0.1)
+            .. controls (-0.622,0.0) and (-0.565,0.12) .. (-0.565,0.308)
+            .. controls (-0.565,0.43) and (-0.6,0.58) .. (-0.678,0.684) -- cycle;
+        % Shield foreground
+        \fill[crestdark]
+            (-0.56,0.0)
+            .. controls (-0.51,0.2) and (-0.493,0.5) .. (-0.625,0.676)
+            -- (-0.48,0.825) -- (0.48,0.825) -- (0.625,0.676)
+            .. controls (0.493,0.5) and (0.51,0.2) .. (0.56,0) % top
+            {[xshift=0.588cm]
+            .. controls (-0.038,0) and (-0.063,-0.01) .. (-0.063,-0.03) % cave
+            .. controls (-0.068,-0.05) and (-0.035,-0.06)
+            .. (-0.035,-0.08) % vex
+            .. controls (-0.035,-0.1) and (-0.06,-0.11)
+            .. (-0.098,-0.11)} % bottom
+            \foreach \xs in {0.392cm, 0.196cm, 0cm, -0.196cm, -0.392cm}{
+                [xshift=\xs]
+                .. controls (0.06,-0.11) and (0.035,-0.1)
+                .. (0.035,-0.08) % vex
+                .. controls (0.035,-0.06) and (0.068,-0.05)
+                .. (0.063,-0.03) % cave
+                .. controls (0.063,-0.01) and (0.038,0) .. (0,0) % top
+                .. controls (-0.038,0) and (-0.063,-0.01)
+                .. (-0.063,-0.03) % cave
+                .. controls (-0.068,-0.05) and (-0.035,-0.06)
+                .. (-0.035,-0.08) % vex
+                .. controls (-0.035,-0.1) and (-0.06,-0.11)
+                .. (-0.098,-0.11) % bottom
+            }
+            [xshift=-0.588cm]
+            .. controls (0.06,-0.11) and (0.035,-0.1) .. (0.035,-0.08) % vex
+            .. controls (0.035,-0.06) and (0.068,-0.05) .. (0.063,-0.03) % cave
+            .. controls (0.063,-0.01) and (0.038,0) .. (0.028,0); % top
+        % Gear
+        \def\ygear{0.4125cm}
+        \fill[crestlight, yshift=\ygear]
+            (-4.875:0.26)
+            \foreach \i in {0,1,...,15} {%
+                [rotate=(22.5*\i-5.625)] arc (0.75:10.5:0.26) --
+                (12:0.3) arc (12:21.75:0.3) -- (23.25:0.26)
+            };
+        % Circle
+        \draw[thick, crestdark, yshift=\ygear]
+            (0,0) circle (0.2);
+        % Outer orbits
+        \begin{scope}[yshift=\ygear]
+            \foreach \i in {0, 30, 60, 90, 120, 150}{
+                \draw[thick, crestdark, rotate=\i]
+                    (0,0) circle (0.17 and 0.05);
+            }
+        \end{scope}
+        % Inner orbits
+        \begin{scope}[yshift=\ygear]
+            \foreach \i in {45, 135}{
+                \draw[thick, crestdark, rotate=\i]
+                    (0,0) circle (0.04 and 0.015);
+            }
+        \end{scope}
+        % Lightening
+        \foreach \xf/\yf in {1/1, 1/-1, -1/1, -1/-1}{
+            \begin{scope}[yshift=\ygear, xscale=\xf, yscale=\yf]
+                \fill[crestlight, very thin]
+                    (0.176,0.2) -- (0.186,0.217) -- (0.295,0.321) --
+                    (0.303,0.249) -- (0.362,0.306) -- (0.318,0.310) --
+                    (0.442,0.380) -- (0.392,0.240) -- (0.382,0.289) --
+                    (0.287,0.170) -- (0.278,0.250) -- (0.217,0.186) --
+                    (0.2,0.176) arc (41.35:48.65:0.2664);
+            \end{scope}
+        }
+        % Letters
+        \fontsize{10pt}{10pt}\fontfamily{ptm}\selectfont
+        \begin{scope}[crestdark]
+            \node[rotate=-62, yscale=1.9] at (-0.681,-0.278){A};
+            \node[rotate=-50, yscale=1.9] at (-0.642,-0.333){F};
+            \node[rotate=-37, yscale=1.9] at (-0.565,-0.412){I};
+            \node[rotate=-33, yscale=1.9] at (-0.520,-0.443){N};
+            \node[rotate=-28, yscale=1.9] at (-0.467,-0.476){S};
+            \node[rotate=-24, yscale=1.9] at (-0.415,-0.503){T};
+            \node[rotate=-21, yscale=1.9] at (-0.370,-0.523){I};
+            \node[rotate=-22, yscale=1.9] at (-0.320,-0.544){T};
+            \node[rotate=-22, yscale=1.9, xslant=-0.25]
+                at (-0.251,-0.572){U};
+            \node[rotate=-26, yscale=1.9, xslant=-0.65]
+                at (-0.182,-0.605){T};
+            \node[rotate=-33, yscale=1.85, xslant=-1.10]
+                at (-0.120,-0.642){E};
+            \node[rotate=-41, xscale=1.2, yscale=1.72, xslant=-1.30]
+                at (-0.027,-0.708){O};
+            \node[rotate=41, xscale=1.5, yscale=1.65, xslant=0.95]
+                at (0.035,-0.700){F};
+            \node[rotate=37, xscale=1.35, yscale=1.7, xslant=0.85]
+                at (0.134,-0.633){T};
+            \node[rotate=30, xscale=1.19, yscale=1.95, xslant=0.65]
+                at (0.204,-0.593){E};
+            \node[rotate=12, yscale=2.05] at (0.262,-0.563){C};
+            \node[rotate=20, yscale=1.95] at (0.327,-0.538){H};
+            \node[rotate=23, yscale=1.95] at (0.398,-0.510){N};
+            \node[rotate=30, yscale=1.9] at (0.467,-0.477){O};
+            \node[rotate=32, yscale=1.9] at (0.529,-0.439){L};
+            \node[rotate=38, yscale=1.9] at (0.585,-0.398){O};
+            \node[rotate=51, yscale=1.9] at (0.640,-0.342){G};
+            \node[rotate=63, yscale=1.9] at (0.680,-0.276){Y};
+        \end{scope}
+        % Signature
+        \node[rotate=24, scale=0.5, crestlight, opacity=0.08]
+            at (0.35,-0.64) {\sffamily DW~\@version};
+    },
+}
 
 % ----------------------
 % Miscellaneous Settings
@@ -921,7 +921,7 @@
     \begin{center}
         \vspace*{\fill}
         % Display the AFIT crest (2.5 inches wide).
-        % \tikz{\path (0,0) pic[scale=3.67]{afitcrest};}\\[3em]
+        \tikz{\path (0,0) pic[scale=3.67]{afitcrest};}\\[3em]
         % Display the title, name, and rank of the student.
         \textbf{\MakeUppercase\@title}\\[3em]
         {\textbf{\@date}}\\[3em]
@@ -1015,7 +1015,7 @@
     \begin{center}
         \vspace*{\fill}
         % Display the AFIT crest (2.5 inches wide).
-        % \tikz{\path (0,0) pic[scale=3.67]{afitcrest};}\\[3em]
+        \tikz{\path (0,0) pic[scale=3.67]{afitcrest};}\\[3em]
         % Display the title, name, and rank of the student.
         \textbf{\MakeUppercase\@title}\\[1em]
         \MakeUppercase\@doctype\\[1em]
