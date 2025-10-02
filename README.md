@@ -53,6 +53,6 @@ Github Copilot is very useful for writing Latex. It can help with syntax, smart 
 
 ## Random notes
 
-I have VSCode set to hide gitignore files to make things cleaner. This can cause confusion if you're not aware.
+I have VSCode set to hide gitignore files to make things cleaner. This can cause confusion if you're not aware. You can change this in `.vscode/settings.json`. 
 
 Gitignore in project directories (e.g., `alt_thesis_template/.gitignore`) excludes PDF files from the repo. Only directories with additional `.gitignore` files ignore PDFs. Make sure you are not committing copious numbers of large PDF files. PDFs that should be included in the repo are things like figures, not compiled documents.
