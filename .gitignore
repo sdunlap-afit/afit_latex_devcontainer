@@ -1,10 +1,16 @@
 
-
-**/*.pdf
-
+alt_thesis_template/*.pdf
+thesis_template/*.pdf
+tex_*/*.pdf
+drawio/*.pdf
+*SAVE-ERROR
 # Temporarily ignore while drafting
 /spec_exam/img
 
+# glossaries-extra auxiliary files
+*.glg-abr
+*.glo-abr
+*.gls-abr
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

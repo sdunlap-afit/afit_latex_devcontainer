@@ -86,6 +86,7 @@
 \RequirePackage{pdfpages} % include whole pdf documents
 \RequirePackage{hyperref} % hyperlinks (before glossaries)
 \RequirePackage[acronym]{glossaries} % glossaries and acronyms
+\RequirePackage[automake,abbreviations]{glossaries-extra}
 \RequirePackage[ % automatic bibliographies
     style=numeric,
     sorting=\thesisbib@sorting,
@@ -443,6 +444,7 @@
 % Remove the automatic heading from acronyms and glossaries.
 \renewcommand{\glossarysection}[2][]{}
 % Must come before new entries.
+
 \makeglossaries
 
 % Hyperlink styling (hyperref package)

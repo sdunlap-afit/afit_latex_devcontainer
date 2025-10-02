@@ -13,11 +13,11 @@ Warning: This is a work-in-progress. Contributions are welcome.
 
 ## Getting started
 
-Clone this repo, open the folder in VSCode, and reopen in container. This will take a while for the image to build.
+Clone this repo, open the folder in VSCode, and reopen in container. This will take a while for the image to download/build.
 
 Next, open `graphing/graphing_main.tex`, click the play icon, then the preview icon.
 
-![](img/build.png)
+![Build Process](tex_resources/img/build.png)
 
 
 ## Included
