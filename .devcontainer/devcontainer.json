@@ -2,9 +2,10 @@
 // https://github.com/microsoft/vscode-dev-containers/tree/v0.177.0/containers/debian
 {
 	"name": "VScode LaTeX ENV",
-	"build": {
-		"dockerfile": "Dockerfile"
-	},
+	"image": "gitlab.cdn.local:5050/latex/latex-docker-image",
+	// "build": {
+	// 	"dockerfile": "Dockerfile"
+	// },
     // Set *default* container specific settings.json values on container create.
 	"mounts": [
 		"source=latex_vscode_extentions,target=/root/.vscode-server/extensions,type=volume",

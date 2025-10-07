@@ -85,7 +85,9 @@
 \RequirePackage{pgfplots} % plots (includes xcolor, graphicx, tikz)
 \RequirePackage{pdfpages} % include whole pdf documents
 \RequirePackage{hyperref} % hyperlinks (before glossaries)
-\RequirePackage[acronym]{glossaries} % glossaries and acronyms
+% There are multiple ways to handle the glossary. I like glossaries-extra as it
+% provides more customization
+% \RequirePackage[acronym]{glossaries} % glossaries and acronyms
 \RequirePackage[automake,abbreviations]{glossaries-extra}
 \RequirePackage[ % automatic bibliographies
     style=numeric,

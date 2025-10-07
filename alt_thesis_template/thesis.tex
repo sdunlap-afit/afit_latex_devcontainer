@@ -29,7 +29,8 @@
 \usepackage{placeins}
 \usepackage{tikz}
 \usetikzlibrary{positioning, shapes.geometric, arrows.meta}
-
+\usepackage{nomencl}
+\makenomenclature
 
 
 %%%%%%%%%% BEGIN Comment out for publication %%%%%%%%%%
@@ -49,33 +50,38 @@
 % ------------------------ Main document information ---------------------------
 
 
-\title{ Theis Draft: Some title }
-\author{ Stephen Dunlap }
+\title{Your Thesis Title Here}
+\author{Your Name Here}
 % \authorsecond{} % Use these if other students contributed.
 % \authorthird{}
 % \authorfourth{}
-\rank{ Contractor }
+\rank{First Lieutenant, USAF}
 % \ranksecond{} % Use these if other students contributed.
 % \rankthird{}
 % \rankfourth{}
-\previousdegrees{B.S., M.S.}
-\newdegree{ Doctor of Philosophy in Computer Engineering }
-\graduationdate{June 2026}
-\department{\ENG} 
-\doctype{dissertation} % Default is "thesis".
-\docdesignator{ AFIT-ENG-PHD-26-S-0XX } % provided by AFIT
+\previousdegrees{B.S.E.E.}
+\newdegree{Master of Science in Your Field}
+\graduationdate{March 2026} % expected month and year
+\department{\ENG} % \ENY, \ENG, \ENP, \ENC, \ENS, or \ENV
+\doctype{thesis} % "dissertation" is the other option
+\docdesignator{AFIT-DEPT-MS-YY-M-XXX} % provided by AFIT
 % \address{} % Default is WPAFB.
 % \disclaimer{} % Default distances the AF from the views of the paper.
 % \copyrightstatement{} % Default claims ownership by US government.
 \committee{ % rank name, Ph.D. \\ role
-    {Scott Graham, Ph.D.\\Chair},
-    {Clark Taylor, Ph.D.\\Member},
-    {Maj Rachel Oliver, Ph.D.\\Member}
+    {Advisor Name, Ph.D.\\Chair},
+    {Member 1, Ph.D.\\Member},
+    {Member 2, M.S.\\Member}
     }
 \abstract{
-Accurate attitude determination is essential for the success of spacecraft missions, impacting various operational aspects such as communication, navigation, and scientific observation. This study investigates the effect of timing errors on the accuracy of attitude determination systems, specifically focusing on clock drift, timestamp inaccuracies, and measurement latency. The research evaluates the performance of different attitude estimation algorithms under varying conditions and identifies potential degradation in accuracy due to timing discrepancies. Simulations of a spacecraft equipped with a star tracker and a three-axis gyroscope emphasize the need for robust error mitigation strategies in attitude determination systems to enhance the reliability and efficiency of space missions.
+Write your abstract here. This text should probably stay under 100
+    words or so. Make sure to not put any personally-identifiable information
+    about others in this text. This will be duplicated onto the SF-298 at the
+    end of your thesis or dissertation. If it does not fit in the small box on
+    the form, make a shorter version using the
+    \texttt{\textbackslash{}sfAbstract} command.
 }
-\keywords{satellite; attitude; factor graph; time; synchronization }
+\keywords{keyword 1; keyword 2; keyword 3}
 % \dedication{To the one who loves me most.}
 % \acknowledgments{I would like to thank the entire committee for your great
     % support.}
@@ -96,8 +102,8 @@ Accurate attitude determination is essential for the success of spacecraft missi
 % -------------- SF 298 (Report Documentation Page) information ----------------
 
 % Necessary fields
-\sfStartDate{Sep 2023}
-\sfEndDate{Mar 2024}
+\sfStartDate{Mon Year}
+\sfEndDate{Mon Year}
 \sfContractNumber{XXXXXX-XX-X-XXXX}
 \sfGrantNumber{}
 \sfProgramElementNumber{}
@@ -133,17 +139,8 @@ Accurate attitude determination is essential for the success of spacecraft missi
 
 % ------------------------- Glossaries and acronyms ----------------------------
 
-% Example glossary and acronym definitions.
-% TODO:
-\newglossaryentry{latex}{name=\LaTeX{},
-    description={Is a markup language specially suited
-    for scientific documents}}
-\newglossaryentry{maths}{name=mathematics,
-    description={Mathematics is what mathematicians do}}
-\newglossaryentry{formula}{name=formula,
-    description={A mathematical expression}}
-\newacronym{gcd}{GCD}{Greatest Common Divisor}
-\newacronym{lcm}{LCM}{Least Common Multiple}
+\input{../tex_resources/glossary.tex}
+
 
 % ----------------------------- References files -------------------------------
 
@@ -159,29 +156,29 @@ Accurate attitude determination is essential for the success of spacecraft missi
 % ============================== Body of paper =================================
 
 \begin{document}
+
 \maketitle % Creates all the prefatory pages.
+
 
 \chapter{Introduction}
 
-
-
+% This is a placeholder chapter. Add your content here.
 
 \chapter{Background}
 
+% This is a placeholder chapter. Add your content here.
 
 \chapter{Methodology}
 
-
+% This is a placeholder chapter. Add your content here.
 
 \chapter{Results and Analysis}
 
-
-
+% This is a placeholder chapter. Add your content here.
 
 \chapter{Conclusion}
 
-
-
+% This is a placeholder chapter. Add your content here.
 
 \appendix % Necessary before any appendix chapters
 
@@ -192,8 +189,8 @@ This paragraph is an example of using the \verb|glossaries| package. The
 \Gls{latex} typesetting markup language is especially suited for documents that
 include \gls{maths}. \Glspl{formula} are rendered properly and easily, once one
 gets used to the commands. Given a set of numbers, there are elementary methods
-to compute its \acrlong{gcd}, which is abbreviated \acrshort{gcd}. This process
-is similar to that used for the \acrfull{lcm}.
+to compute its \glsxtrlong{gcd}, which is abbreviated \glsxtrshort {gcd}. This process
+is similar to that used for the \glsxtrfull{lcm}. The automated way of using abbreviations is to simply use \verb|gls{}|.
 
 The acronyms are listed in Table~\ref{tab_acronymns} and the glossary
 definitions are listed in Table~\ref{tab_glossary}.
@@ -214,10 +211,14 @@ definitions are listed in Table~\ref{tab_glossary}.
     \label{tab_glossary}
 \end{table}
 
-% If you would rather not use the \verb|glossaries| package, you can simply define macros using built-in \LaTeX{} commands:
-% \begin{verbatim}
-%     \def\gcd{Greatest Common Divisor}
-% \end{verbatim}
+\input{../tex_resources/nomenclature.tex}
+
+\begin{table}[htbp!]
+    \centering
+    \caption{Nomenclature definitions.}
+    \printnomenclature
+    \label{tab_nomenclature}
+\end{table}
 
 
 % ------------------------------- Bibliography ---------------------------------
